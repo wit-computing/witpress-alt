@@ -1,0 +1,59 @@
+#{extends 'main.html' /}
+#{set title:"WitPress Blog for ${user.firstName} ${user.lastName}" /}
+
+<div class="row">
+  <div class="span10">
+		#{include 'nav/open.html' /}  
+		  <li class="active"><a href="#"> ${user.firstName} ${user.lastName}'s Blog </a></li>
+		  <li> <a href="@{PublicBlogDirectory.index()}"> Back to Public Blogs</a> </li> 
+      <li><a href="@{About.index()}">About</a></li>     
+      <li><a href="@{Contact.index()}">Contact</a></li>  
+		#{include 'nav/close.html' /}
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="span1"></div><!-- margin -->
+  <div class="span8">    
+    #{list items:reversePosts, as:'post'}
+      <h4>
+        ${post.title}
+      </h4> 
+        ${post.content}
+      <hr>
+      
+      #{if loggedInUser != null}
+      
+        <h5> Comments: </h5>     
+        #{list items:post.comments, as:'comment'}
+         <p> 
+           ${comment.content}:
+         </p>     
+        #{/list}  
+        <hr>
+        <form action="@{PublicBlog.newComment(post.id, user.id, loggedInUser.id)}" method="post">   
+          <input type="hidden" name="postid" value="${post.id}">
+          <label> Comment </label> 
+          <textarea name="content" class="field span8"  rows="2" ></textarea>  
+          <input type="submit" name="submit" value="New Comment"  /> 
+        </form> 
+
+      #{/if}    
+      #{else}
+      
+        #{if post.comments.size() > 0}
+          <h5> Comments: </h5>
+            #{list items:post.comments, as:'comment'}
+             <p> 
+               ${comment.content}:
+             </p>     
+            #{/list}
+          <hr>
+        #{/if}     
+      
+      #{/else}  
+    #{/list}     
+  </div>
+</div>

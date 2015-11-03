@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+
+#{include 'nav/open.html' /}
+  <li> <a href="@{BlogController.index()}">Blog </a></li>   
+  <li> <a href="@{PublicBlogDirectory.index()}"> Public Blogs</a> </li> 
+  <li class="active"><a href="@{About.index()}">About</a></li>     
+  <li><a href="@{Contact.index()}">Contact</a></li>   
+#{include 'nav/close.html' /}
+
+<div class="row">  
+  <div class="span1"></div><!-- margin -->
+    <div class="span5">  
+      <h4>About</h4>
+      <h6>Copyright 2013 WitPress All rights reserved.</h6>
+    </div>
+</div>
+

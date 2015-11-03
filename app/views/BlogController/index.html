@@ -1,0 +1,34 @@
+#{extends 'main.html' /}
+#{set title:"WitPress Home Page for ${user.firstName} ${user.lastName}" /}
+
+<div class="row">
+  <div class="span10">
+   #{include 'nav/open.html' /}
+    <li class="active"> <a href="@{BlogController.index()}">Blog </a></li>   
+    <li> <a href="@{PublicBlogDirectory.index()}"> Public Blogs</a> </li> 
+    <li><a href="@{Accounts.logout()}">Sign Out</a></li>      
+    <li><a href="@{About.index()}">About</a></li>     
+    <li><a href="@{Contact.index()}">Contact</a></li>       
+   #{include 'nav/close.html' /}
+  </div>
+</div>
+
+<div class="row">  
+  <div class="span1"></div><!-- margin -->
+	  <div class="span5">    
+	    <form action="/blog/newpost" method="post">     
+	      <textarea name="title" cols="30" rows="1" placeholder="Choose a Title"></textarea>      
+	      <textarea name="content" cols="30" rows="8" placeholder="Write your post here"></textarea>  
+	      <input type="submit" name="submit" value="New Post"  /> 
+	    </form>      
+	  </div>
+	  <div id="span6">
+	    #{list items:reversePosts, as:'post'}
+	      <h4>
+	        <a href="@{BlogPost.show(post.id)}"> ${post.title} </a> 
+	      </h4> 
+	      <a href="@{BlogController.deletePost(post.id)}" class="btn btn-mini">Delete</a> 
+	      <hr>
+	    #{/list}
+	  </div>  
+</div><!-- !row -->

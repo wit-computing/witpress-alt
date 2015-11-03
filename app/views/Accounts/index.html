@@ -1,0 +1,39 @@
+
+#{extends 'main.html' /}
+#{set title:'Login to WitPress' /}
+
+<div class="row">
+  <div class="span10">
+   #{include 'nav/open.html' /} 
+    <li> <a href="@{PublicBlogDirectory.index()}"> Public Blogs</a> </li> 
+    <li><a href="@{About.index()}">About</a></li>     
+  <li><a href="@{Contact.index()}">Contact</a></li>        
+   #{include 'nav/close.html' /}
+  </div>
+</div>
+
+<div class="row">  
+  <div class="span1"></div><!-- margin -->
+    <div class="span4">
+      <h4>Sign up and begin publishing now</h4>
+      <a href="@{Accounts.signup}" class="btn  btn-large"><i class="icon-white icon-leaf"></i> Get Started</a>
+      <div class="container">
+    </div>
+		<div>
+		  Already blogging? Sign in.
+		</div>
+  </div>
+</div><!-- !row -->
+<div class="row">
+  <div class="span1"></div><!-- margin -->
+    <div class="span4">
+      <form id="login" action="/authenticate" method="POST">
+			  <input type="text" name="email" id="email" placeholder="Email"/>		    
+			  <input type="password" name="password"  id="password" placeholder="Password"/> 		    
+        <input class="btn btn-default" type="submit" value="Login" />
+			</form>
+		</div>
+	</div>
+</div>
+
+

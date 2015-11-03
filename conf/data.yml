@@ -1,0 +1,154 @@
+Comment(comment1):
+    content: Couldn't disagree with you more.
+
+Comment(comment2):
+    content: Couldn't agree with you less.
+
+Comment(comment3):
+    content: Up Kilkenny.
+
+Comment(comment4):
+    content: Up Waterord.
+
+Comment(comment5):
+    content: Up the world.
+
+Comment(comment6):
+    content: Up the junction.
+
+Comment(comment7):
+    content: Ask a 65 year old.
+
+Comment(comment8):
+    content: Motherhood and Apple pie.
+
+Comment(comment9):
+    content: I prefer tea.
+
+Comment(comment10):
+    content: I prefer C++.
+
+Comment(comment11):
+    content: We are monitoring the situation (Local Authority Press Release)
+
+Post(post1):
+    title: The state of the nation.
+    content: The less said of this the better.
+    comments:
+             - comment1
+             - comment2
+
+Post(post2):
+    title: The state of rugby.
+    content: The less said of this the better.
+    comments:
+             - comment3
+             - comment4
+
+Post(post3):
+    title: The state of hurling.
+    content: The less said of this the better.
+    comments:
+             - comment5
+             - comment6
+
+Post(post4):
+    title: What about Brian O'Driscoll then?.
+    content: Is 34 that really old?.
+    comments:
+             - comment7
+             - comment8
+
+Post(post5):
+    title: Java.
+    content: Better than Nescafe.
+    comments:
+             - comment9
+             - comment10
+
+Post(post6):
+    title: NamaWineLake.
+    content: Is no more.
+
+Post(post7):
+    title: I should be at the beach.
+    content: Can't swim very well.
+
+Post(post8):
+    title: The state of the beaches.
+    content: Litter free?.
+    comments:
+             - comment11
+
+Post(post9):
+    title: The state of the government
+    content: I'm for the government. Up the government.
+
+Post(post10):
+    title: The state of the rivers
+    content: Something's rotten in the state of Suir
+
+Blog(homersBlog):
+    posts:
+             - post1
+             - post2    
+
+Blog(margesBlog):
+    posts:
+             - post3
+             - post4 
+
+Blog(lisasBlog):
+    posts:
+             - post5
+             - post6 
+
+Blog(bartsBlog):
+    posts:
+             - post7
+             - post8 
+
+Blog(maggiesBlog):
+    posts:
+             - post9
+             - post10 
+
+User(homer):
+    firstName: Homer
+    lastName: Simpson
+    email: homer@simpson.com
+    password: secret
+    blogs: 
+             - homersBlog
+
+User(marge):
+    firstName: Marge
+    lastName: Simpson
+    email: marge@simpson.com
+    password: secret
+    blogs: 
+             - margesBlog
+             
+User(lisa):
+    firstName: Lisa
+    lastName: Simpson
+    email: lisa@simpson.com
+    password: secret
+    blogs: 
+             - lisasBlog
+
+User(bart):
+    firstName: Bart
+    lastName: Simpson
+    email: bart@simpson.com
+    password: secret
+    blogs: 
+             - bartsBlog
+
+User(maggie):
+    firstName: Maggie
+    lastName: Simpson
+    email: maggie@simpson.com
+    password: secret
+    blogs: 
+             - maggiesBlog

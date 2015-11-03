@@ -1,0 +1,36 @@
+#{extends 'main.html' /}
+#{set title:"WitPress Blog Post : ${post.title}" /}
+
+#{include 'nav/open.html' /}
+  <li> <a href="/blog">Back to Blog</a></li>          
+#{include 'nav/close.html' /}
+
+<div class="row">  
+  <div class="span1"></div><!-- margin -->
+	  <div class="span8">    
+	      <h4>
+	        ${post.title}
+	      </h4> 
+	      <p> 
+	        ${post.content}:
+	      </p>
+	
+	      <hr>
+	      <h5> Comments: </h5>
+	        #{list items:post.comments, as:'comment'}
+	         <p> 
+	           ${comment.content}:
+	           <a href="@{BlogPost.deleteComment(post.id, comment.id)}" class="btn btn-mini">Delete</a>
+	         </p>     
+	        #{/list}  
+	
+	      <hr>
+	            
+	      <form action="@{BlogPost.newComment(post.id)}" method="post">   
+	        <input type="hidden" name="postid" value="${post.id}">
+	        <textarea name="content" class="field span8"  rows="2" placeholder="Write your comment here"></textarea>  
+	        <input type="submit" name="submit" value="New Comment"  /> 
+	      </form>         
+	      <hr>   
+	 </div>
+</div>  
